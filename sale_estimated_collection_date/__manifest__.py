@@ -4,7 +4,8 @@
     "version": "16.0.1.0.0",
     "category": "Sales",
     "license": "LGPL-3",
-    "author": "Custom",
+    "author": "zvERP",
+    'website': "https://www.zverp.com",
     "depends": ["sale_management"],
     "data": [
         "views/sale_order_views.xml",
