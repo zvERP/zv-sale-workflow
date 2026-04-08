@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template
+        id="report_invoice_document_inherit_cancel_ribbon"
+        inherit_id="account.report_invoice_document"
+    >
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <div
+                t-if="o.state == 'cancel' and o.move_type in ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')"
+                style="position: fixed; top: 0; right: 0; z-index: 9999; background: #dc3545; color: #fff; font-size: 16px; font-weight: 700; padding: 6px 12px;"
+            >
+                ANULADA
+            </div>
+        </xpath>
+    </template>
+</odoo>
