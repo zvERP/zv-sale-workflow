@@ -10,4 +10,45 @@
             </xpath>
         </field>
     </record>
+
+    <record id="view_sale_order_estimated_collection_calendar" model="ir.ui.view">
+        <field name="name">sale.order.calendar.estimated.collection.date</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <calendar
+                string="Calendario cobros estimados"
+                date_start="estimated_collection_date"
+                color="state"
+                hide_time="true"
+                event_limit="5"
+                quick_add="False"
+            >
+                <field name="name"/>
+                <field name="partner_id" avatar_field="avatar_128"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="amount_untaxed" widget="monetary"/>
+                <field name="state" filters="1" invisible="1"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_sale_order_estimated_collection_calendar" model="ir.actions.act_window">
+        <field name="name">Calendario cobros estimados</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="view_id" ref="view_sale_order_estimated_collection_calendar"/>
+        <field name="domain">[('estimated_collection_date', '!=', False), ('invoice_status', '!=', 'invoiced')]</field>
+        <field name="search_view_id" ref="sale.view_sales_order_filter"/>
+        <field name="context">{'create': False}</field>
+    </record>
+
+    <menuitem
+        id="menu_sale_order_estimated_collection_calendar"
+        name="Calendario cobros estimados"
+        parent="sale.sale_order_menu"
+        action="action_sale_order_estimated_collection_calendar"
+        groups="sales_team.group_sale_salesman"
+        sequence="30"
+    />
 </odoo>
