@@ -41,6 +41,9 @@
             <xpath expr="//field[@name='date_order']" position="after">
                 <field name="estimated_collection_date" string="Fecha estimada de cobro" optional="show"/>
             </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="analytic_account_id" groups="analytic.group_analytic_accounting" optional="show"/>
+            </xpath>
         </field>
     </record>
 
