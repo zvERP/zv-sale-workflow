@@ -50,7 +50,7 @@
         <field name="inherit_id" ref="sale.view_sales_order_filter"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <xpath expr="//group[@string='Group By']" position="inside">
+            <xpath expr="//search/group/filter[@name='order_month']" position="after">
                 <filter
                     string="Mes cobro estimado"
                     name="group_by_estimated_collection_month"
