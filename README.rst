@@ -9,5 +9,6 @@ zverp-sale-workflow
 |badge1|
 
 - sale_advance_payment_report
+- sale_order_report_label
 - sale_workshop_info
 - sale_order_salesperson_phone
