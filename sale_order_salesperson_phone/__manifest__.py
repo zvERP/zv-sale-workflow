@@ -3,10 +3,10 @@
     'name': "sale order salesperson phone",
 
     'summary': """
-	Adds salesperson telephone to sale order document""",
+	Add salesperson phone number to the sales order document""",
 
     'description': """
-	Adds salesperson telephone to sale order document
+	Add the salesperson phone number to the printed sales order document.
     """,
 
     'author': "zvERP",

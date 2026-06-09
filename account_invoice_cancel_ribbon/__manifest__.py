@@ -4,7 +4,7 @@
 {
     "name": "Account Invoice Cancel Ribbon",
     "version": "16.0.1.0.1",
-    "summary": "Show red ANULADA ribbon on canceled invoice PDF",
+    "summary": "Show a red canceled ribbon on canceled invoice PDFs",
     "category": "Accounting",
     "license": "AGPL-3",
     "author": "zvERP.com",

@@ -1,6 +1,6 @@
 {
     "name": "Sale Estimated Collection Date",
-    "summary": "Estimated collection date on quotations/orders",
+    "summary": "Estimated collection date on quotations and orders",
     "version": "16.0.1.0.0",
     "category": "Sales",
     "license": "LGPL-3",

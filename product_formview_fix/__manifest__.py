@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Product Form View Fix",
-    "summary": "Redirige la navegación de product.product a product.template cuando solo hay una variante",
+    "summary": "Redirect product.product to product.template when there is only one variant",
     "description": """
-        Corrige el comportamiento de navegación al hacer clic en el producto
-        desde sale.order.line u otros modelos: redirige al formulario de
-        product.template en lugar de product.product cuando el producto
-        solo tiene una variante.
+        Adjusts product navigation so that clicking a product from
+        sale.order.line or other models opens the product.template form
+        instead of product.product when the product has only one variant.
     """,
     "version": "16.0.1.0.0",
     "category": "Sales",
