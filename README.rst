@@ -26,5 +26,7 @@ zverp-sale-workflow
      - Manual override for the sales order report title.
    * - ``sale_order_salesperson_phone``
      - Optional salesperson phone number on the sales order report.
+   * - ``sale_quotation_terms_only``
+     - Apply default terms and conditions to quotations, not customer invoices.
    * - ``sale_workshop_info``
      - Workshop vehicle data on sales orders, invoices, and reports.
