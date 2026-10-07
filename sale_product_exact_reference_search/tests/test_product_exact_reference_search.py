@@ -31,6 +31,15 @@ class TestProductExactReferenceSearch(common.TransactionCase):
                 params={"model": "purchase.order"}
             )._must_prioritize_exact_reference()
         )
+        self.assertTrue(
+            products.with_context(
+                partner_id=1,
+                quantity=1,
+                pricelist=1,
+                uom=1,
+                company_id=1,
+            )._must_prioritize_exact_reference()
+        )
 
     def test_sale_product_fields_enable_exact_reference_priority(self):
         view = self.env["sale.order"].get_view(
@@ -65,6 +74,24 @@ class TestProductExactReferenceSearch(common.TransactionCase):
 
         self.assertEqual(results[0][0], self.exact_product.id)
         self.assertEqual(results[1][0], self.partial_product.id)
+
+    def test_exact_displayed_reference_is_moved_before_partial_matches(self):
+        initial_results = [
+            (101, "[17857395] ESSENTIAL CAT MIXI 3KG"),
+            (102, "[10785] SUELO PLASTICO"),
+            (103, "[785] VITALAIT TOP 60"),
+        ]
+
+        results = self.env[
+            "product.product"
+        ]._prioritize_exact_reference_name_search_results(
+            "785", [], 100, initial_results
+        )
+
+        self.assertEqual(
+            [result[0] for result in results],
+            [103, 101, 102],
+        )
 
     def test_exact_reference_respects_search_domain(self):
         results = (

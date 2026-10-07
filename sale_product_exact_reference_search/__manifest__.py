@@ -3,7 +3,7 @@
 
 {
     "name": "Sale Product Exact Reference Search",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.0.2",
     "summary": "Prioritize exact product references on sales order lines",
     "category": "Sales",
     "license": "AGPL-3",
