@@ -41,6 +41,19 @@ class TestProductExactReferenceSearch(common.TransactionCase):
 
         self.assertEqual([result[0] for result in results], [self.exact_product.id])
 
+    def test_sale_product_template_search_returns_only_exact_reference(self):
+        results = self.env["product.template"].name_search(
+            name="785",
+            args=[("sale_ok", "=", True)],
+            operator="ilike",
+            limit=100,
+        )
+
+        self.assertEqual(
+            [result[0] for result in results],
+            [self.exact_product.product_tmpl_id.id],
+        )
+
     def test_name_search_keeps_partial_search_without_exact_reference(self):
         results = dict(
             self.env["product.product"].name_search(

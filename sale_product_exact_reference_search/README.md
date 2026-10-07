@@ -6,3 +6,5 @@ complete reference cannot select an earlier partial match.
 
 The rule is applied directly to product searches and does not depend on a
 specific sales order view, client context, JavaScript, or web asset cache.
+It covers both product variants (`product.product`) and the product-template
+selector (`product.template`) displayed by Odoo's sales configurator.
