@@ -3,12 +3,13 @@
 
 {
     "name": "Sale Product Exact Reference Search",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "summary": "Prioritize exact product references on sales order lines",
     "category": "Sales",
     "license": "AGPL-3",
     "author": "zvERP.com",
     "website": "https://zverp.com",
     "depends": ["sale_management"],
+    "data": ["views/sale_order_views.xml"],
     "installable": True,
 }

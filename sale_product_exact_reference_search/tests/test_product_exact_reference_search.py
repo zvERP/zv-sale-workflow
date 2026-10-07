@@ -1,6 +1,8 @@
 # Copyright 2026
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from lxml import etree
+
 from odoo.tests import common
 
 
@@ -29,6 +31,24 @@ class TestProductExactReferenceSearch(common.TransactionCase):
                 params={"model": "purchase.order"}
             )._must_prioritize_exact_reference()
         )
+
+    def test_sale_product_fields_enable_exact_reference_priority(self):
+        view = self.env["sale.order"].get_view(
+            view_id=self.env.ref("sale.view_order_form").id,
+            view_type="form",
+        )
+        arch = etree.fromstring(view["arch"].encode())
+        product_fields = arch.xpath(
+            "//field[@name='order_line']/*[self::form or self::tree]"
+            "//field[@name='product_id']"
+        )
+
+        self.assertEqual(len(product_fields), 2)
+        for product_field in product_fields:
+            self.assertIn(
+                "'prioritize_exact_reference': True",
+                product_field.get("context"),
+            )
 
     def test_exact_reference_is_moved_before_partial_matches(self):
         initial_results = [
@@ -76,7 +96,7 @@ class TestProductExactReferenceSearch(common.TransactionCase):
     def test_name_search_finds_exact_reference_first(self):
         results = (
             self.env["product.product"]
-            .with_context(params={"model": "sale.order"})
+            .with_context(prioritize_exact_reference=True)
             .name_search(name="ZVTEST-785", operator="ilike", limit=100)
         )
 
