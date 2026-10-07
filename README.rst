@@ -24,6 +24,8 @@ zverp-sale-workflow
      - Estimated collection date and validation on sales orders.
    * - ``sale_order_report_label``
      - Manual override for the sales order report title.
+   * - ``sale_product_exact_reference_search``
+     - Prioritize exact product references on sales order lines.
    * - ``sale_order_salesperson_phone``
      - Optional salesperson phone number on the sales order report.
    * - ``sale_quotation_terms_only``
