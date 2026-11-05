@@ -32,3 +32,5 @@ zverp-sale-workflow
      - Apply default terms and conditions to quotations, not customer invoices.
    * - ``sale_workshop_info``
      - Workshop vehicle data on sales orders, invoices, and reports.
+
+T
